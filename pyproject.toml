@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mldevops-exercise"
+version = "0.1.0"
+description = "ISS project for neural networks"
+authors = ["Bronek31 <tbronikowski20@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+numpy = "^2.1.2"
+torch = "^2.5.1"
+torchvision = "^0.20.1"
+matplotlib = "^3.9.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
