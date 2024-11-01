@@ -6,15 +6,10 @@ from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 
 
-
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.5,), (0.5,))
-])
-
+transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
 
 
 train_dataset = datasets.FashionMNIST(root="./data", train=True, download=True, transform=transform)
@@ -39,8 +34,6 @@ id_to_labels = {
 }
 
 
-
-
 class FashionMNISTModel(nn.Module):
     def __init__(self):
         super(FashionMNISTModel, self).__init__()
@@ -58,14 +51,10 @@ class FashionMNISTModel(nn.Module):
         return x
 
 
-
-
 model = FashionMNISTModel().to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 n_epochs = 5
-
-
 
 
 model.train()
@@ -82,9 +71,6 @@ for epoch in range(n_epochs):
     print(f"Epoch [{epoch+1}/{n_epochs}], Loss: {running_loss/len(train_loader):.4f}")
 
 
-
-
-
 model.eval()
 all_preds = []
 all_labels = []
@@ -96,10 +82,6 @@ with torch.no_grad():
         _, predicted = torch.max(outputs.data, 1)
         all_preds.extend(predicted.cpu().numpy())
         all_labels.extend(labels.cpu().numpy())
-
-
-
-
 
 
 confusion_matrix = np.zeros((10, 10), dtype=int)
