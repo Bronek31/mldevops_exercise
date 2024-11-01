@@ -13,6 +13,7 @@ torch = "^2.5.1"
 torchvision = "^0.20.1"
 matplotlib = "^3.9.2"
 wandb = "^0.18.5"
+optuna = "^4.0.0"
 
 
 [build-system]
