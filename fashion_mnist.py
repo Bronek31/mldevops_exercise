@@ -19,7 +19,7 @@ def create_model():
 def train_model(trial):
     epochs = trial.suggest_int("epochs", 1, 10)
     batch_size = trial.suggest_int("batch_size", 32, 128)
-    learning_rate = trial.suggest_loguniform("learning_rate", 1e-5, 1e-1)
+    learning_rate = trial.suggest_float("learning_rate", 1e-5, 1e-1, log=True)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
